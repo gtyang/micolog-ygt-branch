@@ -1,0 +1,53 @@
+﻿{% extends "base.html" %}
+
+{% block head_block %}
+<meta name="Keywords" content="杨贵堂,个人博客">
+<meta name="Description" content="杨贵堂，IT圈里混了十多年，以后有些想法会随手在这里记下来，只是记录而已.">
+
+{% endblock %}
+
+{% block content %}
+<div id="gc-home">
+
+    <div class="g-section g-tpl-330-alt">
+
+
+      <div class="g-unit">
+        <div class="g-c-gc-home">
+  {% for entry in entries %}
+
+			<div class="post" id="post-{{ entry.id }}">
+				<h2><a href="/{{ entry.link }}" rel="bookmark" title="Permanent Link to {{ entry.title }}">{{ entry.title }}</a></h2>
+				<div class="greytext">{{ entry.date|datetz:"F jS, Y " }} </div>
+
+				<div class="entry">
+					{{entry|excerpt_more:"(..More)"}}
+				</div>
+
+				<p class="postmetadata">Topics: {%for cate in entry.categories%} <a href="/category/{{cate.slug}}">{{cate.name}}</a> {%endfor%} | <a href="/{{entry.link}}#comments">评论({{entry.commentcount}})</a></p>
+			</div>
+
+	 {% endfor %}
+
+
+		<div class="navigation">
+			{% if show_prev %}
+			<div class="alignleft"><a href="/page/{{ pageindex|add:"-1" }}">&laquo; 上一页</a></div>
+			{% endif %}
+			{% if show_next %}
+			<div class="alignright"><a href="/page/{{ pageindex|add:"1" }}">下一页 &raquo;</a></div>
+			{% endif %}
+		</div>
+      </div><!-- end g-c-gc-home -->
+    </div><!-- end g-unit -->
+ <div class="g-unit g-first">
+      	{% include "sidebar.html" %}
+
+      </div>
+  </div><!-- end g-sections 0 -->
+
+
+
+
+</div><!-- end gc-home -->
+{% endblock %}
