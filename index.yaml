@@ -48,7 +48,7 @@ indexes:
   - name: date
     direction: desc
 
-# Used 15 times in query history.
+# Used 19 times in query history.
 - kind: Entry
   properties:
   - name: entry_parent
@@ -63,7 +63,7 @@ indexes:
   - name: date
     direction: desc
 
-# Used 7 times in query history.
+# Used 11 times in query history.
 - kind: Entry
   properties:
   - name: entrytype
@@ -83,7 +83,7 @@ indexes:
   - name: post_id
     direction: desc
 
-# Used 17 times in query history.
+# Used 21 times in query history.
 - kind: Entry
   properties:
   - name: entrytype

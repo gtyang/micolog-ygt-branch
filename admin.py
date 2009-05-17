@@ -970,7 +970,7 @@ def main():
                      ('/admin/lang',setlanguage),
 
                      ('.*',Error404),
-                     ],debug=True)
+                     ],debug=False)
     wsgiref.handlers.CGIHandler().run(application)
 
 if __name__ == "__main__":
