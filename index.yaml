@@ -22,7 +22,7 @@ indexes:
   - name: date
     direction: desc
 
-# Used once in query history.
+# Used 4 times in query history.
 - kind: Comment
   properties:
   - name: entry
@@ -48,7 +48,7 @@ indexes:
   - name: date
     direction: desc
 
-# Used 19 times in query history.
+# Used 21 times in query history.
 - kind: Entry
   properties:
   - name: entry_parent
@@ -63,27 +63,27 @@ indexes:
   - name: date
     direction: desc
 
-# Used 11 times in query history.
+# Used 15 times in query history.
 - kind: Entry
   properties:
   - name: entrytype
   - name: date
     direction: desc
 
-# Unused in query history -- copied from input.
+# Used once in query history.
 - kind: Entry
   properties:
   - name: entrytype
   - name: post_id
 
-# Unused in query history -- copied from input.
+# Used once in query history.
 - kind: Entry
   properties:
   - name: entrytype
   - name: post_id
     direction: desc
 
-# Used 21 times in query history.
+# Used 23 times in query history.
 - kind: Entry
   properties:
   - name: entrytype

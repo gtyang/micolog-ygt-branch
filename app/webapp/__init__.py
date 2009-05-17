@@ -17,7 +17,7 @@
 
 import cgi,os
 import StringIO
-import logging
+# import logging
 import re
 import sys
 import traceback

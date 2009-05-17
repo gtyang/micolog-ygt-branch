@@ -24,6 +24,7 @@ from datetime import datetime, timedelta
 import urllib
 import traceback
 
+logging.getLogger().setLevel(logging.WARNING)
 logging.info('module base reloaded')
 def urldecode(value):
     return  urllib.unquote(urllib.unquote(value)).decode('utf8')

@@ -10,6 +10,7 @@ from google.appengine.api import urlfetch
 from datetime import datetime
 import urllib, hashlib,urlparse
 
+logging.getLogger().setLevel(logging.WARNING)
 logging.info('module base reloaded')
 
 rootpath=os.path.dirname(__file__)

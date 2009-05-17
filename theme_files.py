@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import os,stat
 import sys
-import logging
+# import logging
 import wsgiref.handlers
 from mimetypes import types_map
 from datetime import datetime, timedelta

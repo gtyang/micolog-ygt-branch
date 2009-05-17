@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import logging
+# import logging
 from django import template
 from model import *
 import  django.template.defaultfilters as defaultfilters
