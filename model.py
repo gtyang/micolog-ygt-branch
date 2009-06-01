@@ -462,12 +462,12 @@ class Comment(db.Model):
 
         # construct the url
 		# fix bug according to http://www.kgblog.net/2009/05/30/micolog-bug.html
-		try:
+        try:
             imgurl = "http://www.gravatar.com/avatar/"
             imgurl +=hashlib.md5(self.email).hexdigest()+"?"+ urllib.urlencode({
         	    'd':default, 's':str(size),'r':'G'})
             return imgurl
-		except:
+        except:
 		    imgurl = default
 
 
