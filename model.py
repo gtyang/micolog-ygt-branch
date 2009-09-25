@@ -95,7 +95,7 @@ class Blog(db.Model):
     owner = db.UserProperty()
     author=db.StringProperty(default='admin')
     rpcuser=db.StringProperty(default='admin')
-    rpcpassowrd=db.StringProperty(default='')
+    rpcpassword=db.StringProperty(default='')
     description = db.TextProperty()
     baseurl = db.StringProperty(multiline=False,default=None)
     urlpath = db.StringProperty(multiline=False)
@@ -111,7 +111,7 @@ class Blog(db.Model):
     comment_notify_mail=db.BooleanProperty(default=True)
     domain=db.StringProperty()
     show_excerpt=db.BooleanProperty(default=True)
-    version=0.32
+    version=0.33
     timedelta=db.FloatProperty(default=8.0)# hours
     language=db.StringProperty(default="en-us")
 
