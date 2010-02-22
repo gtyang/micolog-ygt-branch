@@ -5,16 +5,17 @@
     <title>{% block title %} {{ blog.title }}{% endblock %}</title>
     <meta name="generator" content="Mlog" />
     <link rel="stylesheet" href="/static/admin/style.css" type="text/css" media="screen" />
-     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
-<script1 type="text/javascript" src="/static/js/jquery-1.2.6.min.js"></script1>
+     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
 
     {% block header %}{% endblock %}
+{%mf admin_head%}{%endmf%}
 </head>
 <body>
 
 <!-- Dashboard Starts -->
 <div id="dashboard">
-<div style="float:left"> <a title="Are you lost?" href="/admin/">{% trans  "Micolog Dashboard" %}</a></div>
+<div style="float:left"> <a title="Are you lost?" href="/admin/">{% trans  "Micolog Dashboard" %}</a><a href="{{self.logouturl}}">[{% trans "Logout"%}]</a>
+</div>
 <div style="float:right;margin-right:8px"><a href="/admin/lang?language=zh-cn">Chinese</a>
 <a href="/admin/lang?language=en-us">English</a></div>
 <div class="clear"></div>
@@ -42,13 +43,21 @@
     <li class='page_item page-item-2 {{current|check_current:"links"}}' ><a href="/admin/links" title="Blogroll">{% trans "Links" %}</a></li>
      <li class='page_item page-item-2 {{current|check_current:"categories"}}' ><a href="/admin/categories" title="categories">{% trans "Categories" %}</a></li>
     <li class='page_item page-item-2 {{current|check_current:"comments"}}' ><a href="/admin/comments" title="Comments">{% trans "Comments" %}</a></li>
+<li class='page_item page-item-2 {{current|check_current:"files"}}' ><a href="/admin/filemanager" title="Files">{% trans "Files" %}</a></li>
+{%if self.is_admin%}
 
-   <li class='page_item page-item-2 {{current|check_current:"config"}}'><a href="/admin/setup" title="About">{% trans "Configuration" %}</a></li>
+   <li class='page_item page-item-2 {{current|check_current:"config"}}'><a href="/admin/setup" title="setup">{% trans "Configuration" %}</a></li>
+   <li class='page_item page-item-2 {{current|check_current:"plugins"}}'><a href="/admin/plugins" title="plugins">{% trans "Plugins" %}</a></li>
 
     <li class='page_item page-item-2 {{current|check_current:"status"}}'><a href="/admin/status" title="Cache">{% trans "Cache" %}</a></li>
-    <li class='page_item page-item-2 {{current|check_current:"help"}}' style="float:right;font-size:1em"><a href="http://xuming.net/about" id="dshelp" rel="facebox" title="help">{% trans "help" %}</a></li>
+    <li class='page_item page-item-2 {{current|check_current:"authors"}}'><a href="/admin/authors" title="authors">{% trans "Authors" %}</a></li>
     {% block topmenu %}
     {% endblock %}
+	{%mf admin_topmenu%}{%endmf%}
+{%endif%}
+    <li class='page_item page-item-2 {{current|check_current:"help"}}' style="float:right;font-size:1em"><a href="http://micolog.xuming.net/{{blog.language|lower}}/main" id="dshelp" rel="facebox" title="help">{% trans "help" %}</a></li>
+
+
     <div class="clear"></div>
 
 </ul>
@@ -66,7 +75,7 @@
     {% endblock %}
     <!-- Featured Ends -->
 
-    {% block content %}{% endblock %}
+    {% block content %}{{content}}{% endblock %}
 
 
 
@@ -77,12 +86,12 @@
 
 <!-- Footer Starts -->
 <div id="footer">
-
+{%mf admin_footer%}
     <div class="fontmlog">
         <div id="credits">
             <!-- Credit link can be removed by giving a $5 donation, it'll help us all build good karma! -->
             <div class="flogo">
-                <a href="http://xuming.net"> Micolog 0.5</a> for <br><a href="http://code.google.com/appengine/" > google app engine</a>
+                <a href="http://micolog.xuming.net"> Micolog {{blog.version}}</a> for <br><a href="http://code.google.com/appengine/" > google app engine</a>
             </div>
             <span>Theme from: <a href="http://www.freshpressthemes.com" title="See more fresh themes" target="_blank">FreshPress Themes</a> {% now "Y" %}</span>
             <!-- Do Not Remove -->
@@ -91,6 +100,7 @@
          <div class="clear"></div>
 
     </div>
+{%endmf%}
 </div>
 <!-- Footer Ends -->
 

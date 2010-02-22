@@ -817,7 +817,7 @@ border-color : #ebebeb #ccc #ccc #ebebeb;
 float:right;
 width:300px;
 }
-#poststuff #postarea h3{padding-bottom:0}
+
 #postarea a{cursor:pointer}
 #postarea .title{float:left}
 #postarea .editor-toolbar span {
@@ -906,13 +906,15 @@ color : #2583ad;
 text-decoration : none;
 padding-right : 10px;
 }
-#poststuff #titlewrap {
+#titlewrap input,.f_text input{width:100%}
+#poststuff #titlewrap ,.f_text{
 border-color : #ccc;
 border-style : solid;
 border-width : 1px;
 padding : 2px 3px;
 }
-#titlediv #title {
+
+#titlediv #title ,.f_text input{
 border : 0 none;
 font-size : 1.7em;
 padding : 0;
@@ -929,7 +931,7 @@ padding : 0 0 10px;
 background : #fff;
 border : 1px solid #d54e21;
 }
-#postarea .editor-toolbar .active, #nav .current a, #nav2 a.current {
+#postarea .editor-toolbar .active, #nav .current a, #nav2 a.current,#pnav a.current {
 color : #d54e21;
 }
 #postarea .editor-toolbar .active
@@ -1093,3 +1095,12 @@ background-color:#cee1ef;
 	border-color: #ccc;
 }
 
+#pnav a{display:block;color : #2583ad;
+text-decoration : none;
+padding : 5px 0px;}
+
+#pnav {border-right:1px solid #DADADA}
+
+#pcontent{padding:5px 10px}
+
+#pcontent h3{margin-top:0px;}

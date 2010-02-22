@@ -10,45 +10,55 @@ indexes:
 # automatically uploaded to the admin console when you next deploy
 # your application using appcfg.py.
 
-# Unused in query history -- copied from input.
 - kind: Archive
   properties:
-  - name: date
+  - name: year
+    direction: desc
+  - name: month
     direction: desc
 
-# Unused in query history -- copied from input.
 - kind: Comment
   properties:
+  - name: author
   - name: date
     direction: desc
 
-# Used 4 times in query history.
+- kind: Comment
+  properties:
+  - name: email
+  - name: date
+    direction: desc
+
 - kind: Comment
   properties:
   - name: entry
   - name: date
 
-# Unused in query history -- copied from input.
 - kind: Comment
   properties:
   - name: entry
   - name: date
     direction: desc
 
-# Unused in query history -- copied from input.
+- kind: Comment
+  properties:
+  - name: ip
+  - name: date
+    direction: desc
+
 - kind: Entry
   properties:
   - name: categorie_keys
   - name: date
     direction: desc
 
-# Unused in query history -- copied from input.
 - kind: Entry
   properties:
+  - name: categorie_keys
+  - name: published
   - name: date
     direction: desc
 
-# Used 21 times in query history.
 - kind: Entry
   properties:
   - name: entry_parent
@@ -56,34 +66,23 @@ indexes:
   - name: published
   - name: menu_order
 
-# Unused in query history -- copied from input.
-- kind: Entry
-  properties:
-  - name: entry_type
-  - name: date
-    direction: desc
-
-# Used 15 times in query history.
 - kind: Entry
   properties:
   - name: entrytype
   - name: date
     direction: desc
 
-# Used once in query history.
 - kind: Entry
   properties:
   - name: entrytype
   - name: post_id
 
-# Used once in query history.
 - kind: Entry
   properties:
   - name: entrytype
   - name: post_id
     direction: desc
 
-# Used 23 times in query history.
 - kind: Entry
   properties:
   - name: entrytype
@@ -91,7 +90,26 @@ indexes:
   - name: date
     direction: desc
 
-# Unused in query history -- copied from input.
+- kind: Entry
+  properties:
+  - name: entrytype
+  - name: published
+  - name: post_id
+
+- kind: Entry
+  properties:
+  - name: entrytype
+  - name: published
+  - name: post_id
+    direction: desc
+
+- kind: Entry
+  properties:
+  - name: entrytype
+  - name: published
+  - name: readtimes
+    direction: desc
+
 - kind: Entry
   properties:
   - name: entrytype
@@ -99,61 +117,26 @@ indexes:
   - name: slug
   - name: date
 
-# Unused in query history -- copied from input.
-- kind: Entry
-  properties:
-  - name: entrytype=
-  - name: date
-    direction: desc
-
-# Unused in query history -- copied from input.
-- kind: Entry
-  properties:
-  - name: post_id
-    direction: desc
-
-# Unused in query history -- copied from input.
 - kind: Entry
   properties:
   - name: published
+  - name: tags
   - name: date
     direction: desc
 
-# Unused in query history -- copied from input.
-- kind: Entry
-  properties:
-  - name: slug
-  - name: date
-
-# Unused in query history -- copied from input.
 - kind: Entry
   properties:
   - name: tags
   - name: date
     direction: desc
 
-# Unused in query history -- copied from input.
 - kind: Entry
   properties:
   - name: tags
   - name: post_id
     direction: desc
 
-# Unused in query history -- copied from input.
-- kind: Link
+- kind: Media
   properties:
-  - name: linktype
-  - name: createdate
-    direction: desc
-
-# Unused in query history -- copied from input.
-- kind: Link
-  properties:
-  - name: linktype
-  - name: href
-
-# Unused in query history -- copied from input.
-- kind: Logger
-  properties:
+  - name: mtype
   - name: date
-    direction: desc
