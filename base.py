@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import os,logging
+logging.basicConfig(level=logging.WARNING)
 import re
 from functools import wraps
 from google.appengine.api import users

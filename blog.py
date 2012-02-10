@@ -3,6 +3,11 @@ import cgi, os,sys,math
 import wsgiref.handlers
 import  google.appengine.api
 
+os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
+
+from google.appengine.dist import use_library
+use_library('django', '0.96')
+
 # Google App Engine imports.
 from google.appengine.ext.webapp import util
 from google.appengine.ext.webapp import template, \
