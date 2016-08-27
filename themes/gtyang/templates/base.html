@@ -8,75 +8,36 @@
 <link href="/static/wlwmanifest.xml" type="application/wlwmanifest+xml" rel="wlwmanifest"/>
 <link rel="icon" type="image/ico" href="/favicon.ico">
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/jquery/2.2.1/jquery.min.js"></script>
 <link rel="pingback" href="/pingback" />
 <script type="text/javascript" src="/static/js/jquery.cookie.js"></script>
 {% block head_block %}{% endblock %}
 </head>
 <body>
-<div id="gc-container">
-<div id="langpref">
- <span style="background:#CC4444 none repeat scroll 0% 0%;color:white;padding:5px;">
- 正在加载...
- </span>
-</div>
-<script>
-
-    function loginp()
-    {
-       $.getJSON("/do/info_login", function(ret){
-              if( ret.islogin)
-              {
-                html='<span style="color:gray;padding:0px 6px">你好，'+ret.name+'</span> <a href="{{self.logouturl}}"> 注销</a>';
-                if (ret.isadmin)
-                html+=' <a href="/admin">管理</a>';
-                $('#langpref').html(html);
-              }
-              else
-              {$('#langpref').html('<a href="/admin"> 登录</a>');}
-       });
-    }
-    loginp();
-</script>
-<div id="gc-header">
-  <div id="logo"><a href="{{ blog.baseurl }}">
-  <img src="/themes/{{ blog.theme_name }}/images/cleardot.gif" alt="makenotes.net 杨贵堂" id="gc-logo-img"></a>
-  </div>
-  <div id="search">
-
-		<!-- SiteSearch Google -->
-<form action="http://www.google.com.hk/cse" id="cse-search-box">
-  <div>
-    <input type="hidden" name="cx" value="partner-pub-8995377412503046:6183426160" />
-    <input type="hidden" name="ie" value="UTF-8" />
-    <input type="text" name="q" size="55" />
-    <input type="submit" name="sa" value="&#x641c;&#x7d22;" />
-  </div>
-</form>
-
-<script type="text/javascript" src="http://www.google.com.hk/coop/cse/brand?form=cse-search-box&amp;lang=zh-Hans"></script>
-		<!-- SiteSearch Google -->
-  </div> <!-- end search -->
-</div> <!-- end gc-header -->
-
- <div id="codesiteContent">
-
 <div id="gc-topnav">
-  <h1></h1>
+    <div id="logo"><a href="{{ blog.baseurl }}">
+    <img src="/themes/{{ blog.theme_name }}/images/cleardot.gif" alt="makenotes.net 杨贵堂" id="gc-logo-img"></a>
+    </div>
+    <div style="width: 90px;float: left; margin-top:10px"> <h1>杨贵堂的博客</h1> </div>
+    <div id="langpref"style="float: right;">
+     <span style="background:#CC4444 none repeat scroll 0% 0%;color:white;padding:5px;">
+     正在加载...
+     </span>
+    </div>
 
-  <ul id="home" class="gc-topnav-tabs">
-  	<li id="home_link" class="{%if ishome%}current_page_item{%else%}page_item{%endif%}">
-      <a href="{{ blog.baseurl }}"  >首页</a>
-    </li>
-    {{self.m_list_pages}}
-    {% block topmenu %}
+    <ul id="home" class="gc-topnav-tabs">
+      <li id="home_link" class="{%if ishome%}current_page_item{%else%}page_item{%endif%}">
+        <a href="{{ blog.baseurl }}">首页</a>
+      </li>
+      {{self.m_list_pages}}
+      {% block topmenu %}
 
-    {% endblock %}
+      {% endblock %}
+    </ul>
+</div> <!-- end gc-topnav -->
 
-</ul>
-</div>
-<!-- end gc-topnav -->
-
+<div id="gc-container">
+ <div id="codesiteContent">
 
  {% block content %}{% endblock %}
 
@@ -104,5 +65,30 @@ try {
 var pageTracker = _gat._getTracker("UA-7349754-3");
 pageTracker._trackPageview();
 } catch(err) {}</script>
+
+<script>
+
+    function loginp()
+    {
+       $.getJSON("/do/info_login", function(ret){
+              if( ret.islogin)
+              {
+                html='<span style="color:gray;padding:0px 6px">你好，'+ret.name+'</span> <a href="{{self.logouturl}}"> 注销</a>';
+                if (ret.isadmin)
+                html+=' <a href="/admin">管理</a>';
+                $('#langpref').html(html);
+
+
+              }
+              else
+              {
+           $('#langpref').html('<a href="/admin"> 登录</a>');
+           if(typeof(get_check_area)!='undefined')
+                  get_check_area({{blog.comment_check_type}});
+        }
+       });
+    }
+    loginp();
+</script>
 </body>
 </html>
